@@ -43,6 +43,7 @@ public class PizzaOrderTest extends TestBase {
         pizzaMakerDialog
                 .setQuantity(2);
         /**
+         * Muted the like due to the locator in the UI.
          * The calculated value of the pizza is not coming as text
          *  !!!!!!!!! it as a bug !!!!!!!!!
          */
