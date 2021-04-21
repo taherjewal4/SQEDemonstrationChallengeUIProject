@@ -25,7 +25,7 @@ public class PizzaOrderTest extends TestBase {
     }
 
     @Test
-    public void successPizzaOrder() throws InterruptedException {
+    public void successPizzaOrder() {
         String selectedPizza = PizzaTypes.LARGE_THREETOPPINGS
                 .getDisplayName().concat(" $" + PizzaTypes.LARGE_THREETOPPINGS.getCost());
         PizzaMakerDialog pizzaMakerDialog = pizzaOrderForm.getPizzaMakerDialog();
@@ -62,8 +62,8 @@ public class PizzaOrderTest extends TestBase {
         picker.selectOption();
         paymentInformation.placeOrder();
         InfoMessage infoMessage = new InfoMessage(driver);
-
         assertTrue(infoMessage.getInfoMessage().contains("Thank you for your order!"));
-        infoMessage.closeMessage();
+        infoMessage
+                .closeMessage();
     }
 }
