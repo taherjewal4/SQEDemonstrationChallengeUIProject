@@ -25,7 +25,7 @@ public class PizzaOrderTest extends TestBase {
     }
 
     @Test
-    public void successPizzaOrder() {
+    public void successPizzaOrder() throws InterruptedException {
         String selectedPizza = PizzaTypes.LARGE_THREETOPPINGS
                 .getDisplayName().concat(" $" + PizzaTypes.LARGE_THREETOPPINGS.getCost());
         PizzaMakerDialog pizzaMakerDialog = pizzaOrderForm.getPizzaMakerDialog();
@@ -43,7 +43,6 @@ public class PizzaOrderTest extends TestBase {
         pizzaMakerDialog
                 .setQuantity(2);
         /**
-         * Muted the like due to the locator in the UI.
          * The calculated value of the pizza is not coming as text
          *  !!!!!!!!! it as a bug !!!!!!!!!
          */
@@ -63,6 +62,8 @@ public class PizzaOrderTest extends TestBase {
         picker.selectOption();
         paymentInformation.placeOrder();
         InfoMessage infoMessage = new InfoMessage(driver);
+
         assertTrue(infoMessage.getInfoMessage().contains("Thank you for your order!"));
+        infoMessage.closeMessage();
     }
 }
